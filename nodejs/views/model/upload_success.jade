@@ -1,0 +1,12 @@
+// upload.jade - Allow a user to select a file and upload it to Shapeways
+extends ../layout
+
+block content
+  h1 Upload Successful!
+  
+  h3= callback.modelId
+  
+  a(href='http://www.shapeways.com/model/' + callback.modelId, target='_blank') View on Shapeways
+  
+  .back
+  a(href='/') Back to your models

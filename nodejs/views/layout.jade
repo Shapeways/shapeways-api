@@ -1,0 +1,17 @@
+// layout.jade - Main index layout
+
+// my-layout.jade
+doctype 5
+html
+  head
+    title Shapeways Sample App
+    block head
+  body
+    .nav
+      a(href='/') Home
+      |  | 
+      a(href='/upload') Upload
+      |  | 
+      a(href='/logout') Logout
+    .content
+      block content

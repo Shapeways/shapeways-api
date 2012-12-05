@@ -1,0 +1,29 @@
+{
+    "name": "shapeways"
+  , "version": "0.0.1"
+  , "description": "API Wrapper for the Shapeways API in NodeJS"
+  , "homepage": "http://www.shapeways.com"
+  , "keywords": ["shapeways", "3d", "printing"]
+  , "author": "Brad Dickason <brad@shapeways.com>"
+  , "contributors": [
+        { "name": "Brad Dickason", "email": "brad@shapeways.com" }
+    ]
+  , "repository":{
+        "type": "git"
+      , "url": "https://github.com/Shapeways/shapeways-node.git"
+    }
+  , "dependencies": {
+        "express": "3.0.1",
+        "coffee-script": "1.4.0",
+        "oauth": "0.9.8",
+				"jade": "0.27.7"
+    }
+  , "devDependencies": {
+        "mocha": "1.6.0"        
+    }
+  , "main": "index"
+  , "engines": { "node": ">= 0.4.0" }
+  , "scripts": {
+        "test": "make test"
+    }
+}

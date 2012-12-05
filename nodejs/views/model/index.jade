@@ -1,0 +1,13 @@
+// index.jade - Handle base directory views
+extends ../layout
+
+block content
+  h1 Your Models
+  
+  strong Total count: 
+    !{callback.models.length}
+  each model in callback.models
+   li 
+    a(href='/model/' + model.modelId) !{model.modelTitle}
+  
+    
