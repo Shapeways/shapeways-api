@@ -23,10 +23,13 @@ Sample applications for the Shapeways REST API in PHP/PECL
 - ApiList-oauth1-pecl.php Shows your rate limiting data in JSON format.
 - CartAddModel-oauth1-pecl.php Add a model to your shopping cart.
 - CartList-oauth1-pecl.php Show your cart contents.
+- MaterialList-oauth1-pecl.php Show the list of all material properties.
 - MaterialInfo-oauth1-pecl.php Show material properties.
 - ModelDownload-oauth1-pecl.php Download a model.
 - ModelGet-oauth1-pecl.php Show model properties.
 - ModelUpload-oauth1-pecl.php Upload a model.
+- PrinterList-oauth1-pecl.php Show a list of all properties of all printers.
+- PrinterGet-oauth1-pecl.php Show all properties of a printer.
 
 ## TODO
 

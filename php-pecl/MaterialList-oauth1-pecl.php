@@ -15,15 +15,7 @@ try {
 }
 
 try {
-    $filename = "cube-1cm3-centered_in_meter.stl";
-    $file = file_get_contents("../models/". $filename);
-    $data = array("fileName" => "$filename",
-                  "file" => rawurlencode(base64_encode($file)),
-                  "ownOrAuthorizedModel" => 1,
-                  "acceptTermsAndConditions" => 1,
-                  );
-    $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/model/v1", $data_string, OAUTH_HTTP_METHOD_POST);
+    $oauth->fetch($api_url_base ."/material/v1", null, OAUTH_HTTP_METHOD_GET);
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {
@@ -32,6 +24,7 @@ try {
     } else {
         print_r($json);
     }
+
 } catch(OAuthException $E) {
     Error("fetch exception", $E->getMessage(), null, $oauth->getLastResponseInfo(), $E->debugInfo);
 }
