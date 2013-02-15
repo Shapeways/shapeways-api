@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Upload Successful!</h1>
+
+<h3>{{ modelId }}</h3>
+
+<a href='http://www.shapeways.com/model/{{ modelId }}' target='_blank'>View on Shapeways</a>
+
+<div class="back">
+    <a href="/">Back to your models</a>
+</div>
+{% endblock %}
