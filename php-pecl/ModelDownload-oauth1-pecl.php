@@ -16,7 +16,8 @@ try {
 
 try {
     $modelId = 1234567; # CHANGEME
-    $oauth->fetch($api_url_base ."/model/$modelId/v1", null, OAUTH_HTTP_METHOD_GET);
+    $modelVersion = 0; # CHANGEME
+    $oauth->fetch($api_url_base ."/models/$modelId/files/$modelVersion/v1?file=true", null, OAUTH_HTTP_METHOD_GET, array("Accept" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {

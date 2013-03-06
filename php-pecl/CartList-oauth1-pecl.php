@@ -15,7 +15,7 @@ try {
 }
 
 try {
-    $oauth->fetch($api_url_base ."/cart/v1", null, OAUTH_HTTP_METHOD_GET);
+    $oauth->fetch($api_url_base ."/orders/cart/v1", null, OAUTH_HTTP_METHOD_GET, array("Accept" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {

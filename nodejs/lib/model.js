@@ -20,7 +20,7 @@
     function Model() {}
 
     Model.prototype.getModels = function(oauth_access_token, oauth_access_token_secret, callback) {
-      return auth.oa.getProtectedResource("http://" + cfg.API_SERVER + "/model/" + cfg.API_VERSION, 'GET', oauth_access_token, oauth_access_token_secret, function(error, data, response) {
+      return auth.oa.getProtectedResource("http://" + cfg.API_SERVER + "/models/" + cfg.API_VERSION, 'GET', oauth_access_token, oauth_access_token_secret, function(error, data, response) {
         if (error) {
           console.log('error :' + JSON.stringify(error));
         }
@@ -29,7 +29,7 @@
     };
 
     Model.prototype.getModel = function(id, oauth_access_token, oauth_access_token_secret, callback) {
-      return auth.oa.getProtectedResource("http://" + cfg.API_SERVER + "/model/" + id + "/" + cfg.API_VERSION, 'GET', oauth_access_token, oauth_access_token_secret, function(error, data, response) {
+      return auth.oa.getProtectedResource("http://" + cfg.API_SERVER + "/models/" + id + "/" + cfg.API_VERSION, 'GET', oauth_access_token, oauth_access_token_secret, function(error, data, response) {
         if (error) {
           console.log('error :' + JSON.stringify(error));
         }
@@ -48,7 +48,7 @@
           ownOrAuthorizedModel: 1,
           acceptTermsAndConditions: 1
         });
-        return auth.oa.post("http://" + cfg.API_SERVER + "/model/" + cfg.API_VERSION, oauth_access_token, oauth_access_token_secret, upload, function(error, data, response) {
+        return auth.oa.post("http://" + cfg.API_SERVER + "/models/" + cfg.API_VERSION, oauth_access_token, oauth_access_token_secret, upload, function(error, data, response) {
           if (error) {
             console.log('ERROR:');
             return console.log(error);

@@ -51,7 +51,7 @@ app.get '/upload', (req, res) ->
     # Display file upload dialog
     res.render 'model/upload.jade'
 
-app.post '/model/upload', (req, res) ->
+app.post '/models/upload', (req, res) ->
   # Process model upload
   if !isLoggedIn(req.session)
     res.redirect '/login'
@@ -60,7 +60,7 @@ app.post '/model/upload', (req, res) ->
     model.putModel req.files.modelUpload, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
       res.render 'model/upload_success.jade', { "callback": JSON.parse callback }
       
-app.get '/model/:id', (req, res) ->
+app.get '/models/:id', (req, res) ->
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else

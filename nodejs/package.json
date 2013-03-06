@@ -1,6 +1,6 @@
 {
     "name": "shapeways"
-  , "version": "0.0.1"
+  , "version": "0.0.2"
   , "description": "API Wrapper for the Shapeways API in NodeJS"
   , "homepage": "http://www.shapeways.com"
   , "keywords": ["shapeways", "3d", "printing"]

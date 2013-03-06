@@ -16,7 +16,7 @@ try {
 
 try {
     $materialId = 26; # CHANGEME
-    $oauth->fetch($api_url_base ."/material/$materialId/v1", null, OAUTH_HTTP_METHOD_GET);
+    $oauth->fetch($api_url_base ."/materials/$materialId/v1", null, OAUTH_HTTP_METHOD_GET, array("Accept" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {

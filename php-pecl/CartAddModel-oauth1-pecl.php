@@ -22,7 +22,7 @@ try {
                   "scale" => 1,
     );
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/cart/v1", $data_string, OAUTH_HTTP_METHOD_POST);
+    $oauth->fetch($api_url_base ."/orders/cart/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {

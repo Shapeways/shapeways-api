@@ -68,7 +68,7 @@
     }
   });
 
-  app.post('/model/upload', function(req, res) {
+  app.post('/models/upload', function(req, res) {
     if (!isLoggedIn(req.session)) {
       return res.redirect('/login');
     } else {
@@ -80,7 +80,7 @@
     }
   });
 
-  app.get('/model/:id', function(req, res) {
+  app.get('/models/:id', function(req, res) {
     if (!isLoggedIn(req.session)) {
       return res.redirect('/login');
     } else {

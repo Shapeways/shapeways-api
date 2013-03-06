@@ -6,6 +6,7 @@ Sample applications for the Shapeways REST API in various languages.
 ## Languages
 
 - PHP/PECL
+- PHP/CURL
 - NodeJS
 
 ## TODO
@@ -14,7 +15,6 @@ Sample applications for the Shapeways REST API in various languages.
 - C++
 - Java
 - Perl
-- PHP/CURL
 - Python
 - Ruby
 

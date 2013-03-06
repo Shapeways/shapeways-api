@@ -9,7 +9,7 @@ exports.Model = class Model
   getModels: (oauth_access_token, oauth_access_token_secret, callback) ->
     # Note: getModels, getModel should utilize same function with overloaded optional parameter :modelId
 
-    auth.oa.getProtectedResource "http://#{cfg.API_SERVER}/model/#{cfg.API_VERSION}", 'GET', oauth_access_token, oauth_access_token_secret, (error, data, response) ->
+    auth.oa.getProtectedResource "http://#{cfg.API_SERVER}/models/#{cfg.API_VERSION}", 'GET', oauth_access_token, oauth_access_token_secret, (error, data, response) ->
       if error
         console.log 'error :' + JSON.stringify error
 
@@ -18,7 +18,7 @@ exports.Model = class Model
 
   getModel: (id, oauth_access_token, oauth_access_token_secret, callback) ->
     # Note: getModel should utilize same function with overloaded optional parameter :modelId
-    auth.oa.getProtectedResource "http://#{cfg.API_SERVER}/model/#{id}/#{cfg.API_VERSION}", 'GET', oauth_access_token, oauth_access_token_secret, (error, data, response) ->
+    auth.oa.getProtectedResource "http://#{cfg.API_SERVER}/models/#{id}/#{cfg.API_VERSION}", 'GET', oauth_access_token, oauth_access_token_secret, (error, data, response) ->
      if error
        console.log 'error :' + JSON.stringify error
 
@@ -38,7 +38,7 @@ exports.Model = class Model
         acceptTermsAndConditions: 1
       }
 
-      auth.oa.post "http://#{cfg.API_SERVER}/model/#{cfg.API_VERSION}", oauth_access_token, oauth_access_token_secret, upload, (error, data, response) ->
+      auth.oa.post "http://#{cfg.API_SERVER}/models/#{cfg.API_VERSION}", oauth_access_token, oauth_access_token_secret, upload, (error, data, response) ->
         if error
           console.log 'ERROR:'
           console.log error
