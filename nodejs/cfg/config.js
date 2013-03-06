@@ -8,11 +8,11 @@
 
   exports.API_VERSION = process.env.API_VERSION || 'v1';
 
-  exports.API_SERVER = process.env.API_SERVER || 'api.shapeways.com';
+  exports.API_SERVER = process.env.API_SERVER || 'shapeways.com';
 
-  exports.REQUEST_TOKEN_URL = process.env.REQUEST_TOKEN_URL || ("http://" + this.API_SERVER + "/oauth1/request_token/" + this.API_VERSION);
+  exports.REQUEST_TOKEN_URL = process.env.REQUEST_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/request_token/" + this.API_VERSION);
 
-  exports.ACCESS_TOKEN_URL = process.env.ACCESS_TOKEN_URL || ("http://" + this.API_SERVER + "/oauth1/access_token/" + this.API_VERSION);
+  exports.ACCESS_TOKEN_URL = process.env.ACCESS_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/access_token/" + this.API_VERSION);
 
   exports.CUSTOMER_KEY = process.env.CUSTOMER_KEY || '2c74e97709ac200da02222036df4ec3c5997ba51';
 

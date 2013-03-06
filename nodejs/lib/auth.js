@@ -19,15 +19,13 @@
     }
 
     Auth.prototype.login = function(callback) {
-      console.log('Getting OAuth Request Token');
       return this.oa.getOAuthRequestToken(function(error, oauth_token, oauth_token_secret, results) {
         var url;
         if (error) {
           console.log('error :' + JSON.stringify(error));
         }
-        console.log(results);
         url = results.authentication_url;
-        return callback({
+        return callback(error, {
           oauth_token: oauth_token,
           oauth_token_secret: oauth_token_secret,
           url: url

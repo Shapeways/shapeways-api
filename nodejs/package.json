@@ -1,6 +1,6 @@
 {
     "name": "shapeways"
-  , "version": "0.0.2"
+  , "version": "0.0.1"
   , "description": "API Wrapper for the Shapeways API in NodeJS"
   , "homepage": "http://www.shapeways.com"
   , "keywords": ["shapeways", "3d", "printing"]
@@ -19,7 +19,8 @@
 				"jade": "0.27.7"
     }
   , "devDependencies": {
-        "mocha": "1.6.0"        
+        "mocha": "1.6.0",
+    		"should": "1.2.1"
     }
   , "main": "index"
   , "engines": { "node": ">= 0.4.0" }

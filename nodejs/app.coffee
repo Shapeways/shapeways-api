@@ -30,7 +30,7 @@ app.get '/', (req, res) ->
 
 app.get '/login', (req, res) ->
   # Allow user to login using Shapeways and collect request token
-  auth.login (callback) ->
+  auth.login (error, callback) ->
     # Store oauth_token + secret in session
     req.session.oauth_token = callback.oauth_token
     req.session.oauth_token_secret = callback.oauth_token_secret
@@ -51,16 +51,16 @@ app.get '/upload', (req, res) ->
     # Display file upload dialog
     res.render 'model/upload.jade'
 
-app.post '/models/upload', (req, res) ->
+app.post '/model/upload', (req, res) ->
   # Process model upload
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
     # Upload a model
     model.putModel req.files.modelUpload, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
-      res.render 'model/upload_success.jade', { "callback": JSON.parse callback }
+      res.render 'model/upload_success.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER }
       
-app.get '/models/:id', (req, res) ->
+app.get '/model/:id', (req, res) ->
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
@@ -70,14 +70,13 @@ app.get '/models/:id', (req, res) ->
       if isJson req.url
         res.send JSON.parse callback
       else
-        res.render 'model/id.jade', { "callback": JSON.parse callback }
+        res.render 'model/id.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER  }
 
 app.get '/model*', (req, res) ->
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
     # Display a list of user's models
-          
     model.getModels req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
       if isJson req.url
         res.send JSON.parse callback
@@ -89,9 +88,6 @@ app.get '/model*', (req, res) ->
 
 app.get '/logout', (req, res) ->
   # Allow the user to logout (clear local cookies)
-  console.log '--- LOGOUT ---'
-  console.log req.session
-  console.log '--- LOGOUT ---'
   req.session.destroy()
   res.redirect '/'  
 

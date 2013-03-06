@@ -45,7 +45,7 @@
   });
 
   app.get('/login', function(req, res) {
-    return auth.login(function(callback) {
+    return auth.login(function(error, callback) {
       req.session.oauth_token = callback.oauth_token;
       req.session.oauth_token_secret = callback.oauth_token_secret;
       return res.redirect(callback.url);
@@ -68,19 +68,20 @@
     }
   });
 
-  app.post('/models/upload', function(req, res) {
+  app.post('/model/upload', function(req, res) {
     if (!isLoggedIn(req.session)) {
       return res.redirect('/login');
     } else {
       return model.putModel(req.files.modelUpload, req.session.oauth_access_token, req.session.oauth_access_token_secret, function(callback) {
         return res.render('model/upload_success.jade', {
-          "callback": JSON.parse(callback)
+          "callback": JSON.parse(callback),
+          "server": cfg.API_SERVER
         });
       });
     }
   });
 
-  app.get('/models/:id', function(req, res) {
+  app.get('/model/:id', function(req, res) {
     if (!isLoggedIn(req.session)) {
       return res.redirect('/login');
     } else {
@@ -89,7 +90,8 @@
           return res.send(JSON.parse(callback));
         } else {
           return res.render('model/id.jade', {
-            "callback": JSON.parse(callback)
+            "callback": JSON.parse(callback),
+            "server": cfg.API_SERVER
           });
         }
       });
@@ -113,9 +115,6 @@
   });
 
   app.get('/logout', function(req, res) {
-    console.log('--- LOGOUT ---');
-    console.log(req.session);
-    console.log('--- LOGOUT ---');
     req.session.destroy();
     return res.redirect('/');
   });
