@@ -1,6 +1,6 @@
 express = require 'express'
 Auth = (require './lib/auth.js').Auth
-Model = (require './lib/model.js').Model
+Models = (require './lib/models.js').Models
 cfg = require './cfg/config.js'
   
 app = express()
@@ -15,7 +15,7 @@ app.engine 'jade', require('jade').__express
 ### Controllers ###
 
 auth = new Auth
-model = new Model
+models = new Models
 
 
 ### Routes ###      
@@ -25,7 +25,7 @@ app.get '/', (req, res) ->
     res.redirect '/login'
   else
     # User is already auth'd in and should be taken to their models
-    res.redirect '/model'
+    res.redirect '/models'
     
 
 app.get '/login', (req, res) ->
@@ -49,39 +49,39 @@ app.get '/upload', (req, res) ->
     res.redirect '/login'
   else
     # Display file upload dialog
-    res.render 'model/upload.jade'
+    res.render 'models/upload.jade'
 
-app.post '/model/upload', (req, res) ->
+app.post '/models/upload', (req, res) ->
   # Process model upload
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
     # Upload a model
-    model.putModel req.files.modelUpload, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
-      res.render 'model/upload_success.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER }
+    models.putModel req.files.modelUpload, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
+      res.render 'models/upload_success.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER }
       
-app.get '/model/:id', (req, res) ->
+app.get '/models/:id', (req, res) ->
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
     # Display a list of user's models
 
-    model.getModel req.params.id, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
+    models.getModel req.params.id, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
       if isJson req.url
         res.send JSON.parse callback
       else
-        res.render 'model/id.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER  }
+        res.render 'models/id.jade', { "callback": JSON.parse(callback), "server": cfg.API_SERVER  }
 
-app.get '/model*', (req, res) ->
+app.get '/models*', (req, res) ->
   if !isLoggedIn(req.session)
     res.redirect '/login'
   else
     # Display a list of user's models
-    model.getModels req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
+    models.getModels req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
       if isJson req.url
         res.send JSON.parse callback
       else
-        res.render 'model/index.jade', { "callback": JSON.parse callback }
+        res.render 'models/index.jade', { "callback": JSON.parse callback }
       
 
 

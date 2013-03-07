@@ -30,10 +30,6 @@ _Note: If you modify the configuration file you will need to recompile the coffe
 
 **Variables**
 ```
-# Shapeways OAuth URLs
-exports.REQUEST_TOKEN_URL = process.env.REQUEST_TOKEN_URL || 'http://api.test102.ehv.shapeways.net/oauth1/request_token/v1'
-exports.ACCESS_TOKEN_URL = process.env.ACCESS_TOKEN_URL || 'http://api.test102.ehv.shapeways.net/oauth1/access_token/v1'
-
 # Tokens from 'My Apps' on Shapeways
 exports.CUSTOMER_KEY = process.env.CUSTOMER_KEY || '0c4d90e3d93a690d1287086d066eb64c4c15914f'
 exports.CUSTOMER_SECRET = process.env.CUSTOMER_SECRET || '647939e8935d986413a83c6e428fd64fb7f668d5'
@@ -53,12 +49,7 @@ exports.CALLBACK_URL = process.env.CALLBACK_URL || 'http://localhost:3000/callba
 
 
 ## TODO
-* ~~Auth a user via OAuth~~
-* ~~Move hardcoded consumer keys into app's session variables~~
-* ~~Move auth logic into its own function~~
-* ~~View a list of the user's modules~~
-* ~~Upload a model~~
 * Edit a model's information
 * View a list of Materials
+* Get pricing information for a model
 * Add links to documentation
-* Create npm module

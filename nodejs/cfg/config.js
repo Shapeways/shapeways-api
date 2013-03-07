@@ -8,16 +8,20 @@
 
   exports.API_VERSION = process.env.API_VERSION || 'v1';
 
-  exports.API_SERVER = process.env.API_SERVER || 'shapeways.com';
-
-  exports.REQUEST_TOKEN_URL = process.env.REQUEST_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/request_token/" + this.API_VERSION);
-
-  exports.ACCESS_TOKEN_URL = process.env.ACCESS_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/access_token/" + this.API_VERSION);
-
   exports.CUSTOMER_KEY = process.env.CUSTOMER_KEY || '2c74e97709ac200da02222036df4ec3c5997ba51';
 
   exports.CUSTOMER_SECRET = process.env.CUSTOMER_SECRET || 'dc9bce571e5953db857356240b5e9778c641bd3e';
 
   exports.CALLBACK_URL = process.env.CALLBACK_URL || 'http://localhost:3000/callback';
+
+  /* Do not modify
+  */
+
+
+  exports.API_SERVER = process.env.API_SERVER || 'shapeways.com';
+
+  exports.REQUEST_TOKEN_URL = process.env.REQUEST_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/request_token/" + this.API_VERSION);
+
+  exports.ACCESS_TOKEN_URL = process.env.ACCESS_TOKEN_URL || ("http://api." + this.API_SERVER + "/oauth1/access_token/" + this.API_VERSION);
 
 }).call(this);
