@@ -19,7 +19,7 @@ try {
     $file = file_get_contents("../models/". $filename);
     $data = array("fileName" => "$filename",
                   "file" => rawurlencode(base64_encode($file)),
-                  "ownOrAuthorizedModel" => 1,
+                  "hasRightsToModel" => 1,
                   "acceptTermsAndConditions" => 1,
                   );
     $data_string = json_encode($data);
