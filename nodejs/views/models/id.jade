@@ -4,6 +4,7 @@ extends ../layout
 block content
   h1= callback.modelId
   
-  a(href="http://" + server + "/model/" + callback.modelId, target='_blank') View on Shapeways
-  
-  
+  p
+    a(href="http://" + server + "/model/" + callback.modelId, target='_blank') View on Shapeways
+    br
+    a(href="/models/" + callback.modelId + ".json") View as JSON
