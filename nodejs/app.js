@@ -85,6 +85,9 @@
     if (!isLoggedIn(req.session)) {
       return res.redirect('/login');
     } else {
+      if (isJson(req.url)) {
+        req.params.id = req.params.id.substring(0, req.params.id.length - 5);
+      }
       return models.getModel(req.params.id, req.session.oauth_access_token, req.session.oauth_access_token_secret, function(callback) {
         if (isJson(req.url)) {
           return res.send(JSON.parse(callback));

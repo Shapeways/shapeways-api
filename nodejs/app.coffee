@@ -65,6 +65,8 @@ app.get '/models/:id', (req, res) ->
     res.redirect '/login'
   else
     # Display a list of user's models
+    if isJson req.url
+      req.params.id = req.params.id.substring 0, req.params.id.length-5
 
     models.getModel req.params.id, req.session.oauth_access_token, req.session.oauth_access_token_secret, (callback) ->
       if isJson req.url
