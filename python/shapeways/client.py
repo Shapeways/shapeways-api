@@ -80,31 +80,31 @@ class Client(object):
 
     def _get(self, url, params=None):
         """
-        """
-        return requests.get(
-            url =self.url(url), auth=self.oauth, params=params
+        response = requests.get(
+            url =self.url(path), auth=self.oauth, params=params
         )
+        return response.json()
 
     def _delete(self, url, params=None):
         """
-        """
-        return requests.delete(
+        response = requests.delete(
             url=self.url(url), auth=self.oauth, params=params
         )
+        return response.json()
 
     def _post(self, url, body=None, params=None):
         """
-        """
-        return requests.post(
+        response = requests.post(
             url=self.url(url), auth=self.oauth, params=params, data=body
         )
+        return response.json()
 
     def _put(self, url, body=None, params=None):
         """
-        """
-        return requests.put(
+        response = requests.put(
             url=self.url(url), auth=self.oauth, params=params, data=body
         )
+        return response.json()
 
     def get_api_info(self):
         """
