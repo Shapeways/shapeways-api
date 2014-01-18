@@ -121,3 +121,153 @@ class TestClient(unittest2.TestCase):
                 args["url"], "https://api.shapeways.com/oauth1/access_token/v1"
             )
             self.assertIsInstance(args["auth"], OAuth1)
+
+    def test_get(self):
+        with mock.patch.object(requests, "get"):
+            client = Client("key", "secret")
+            client._get("/api/")
+            requests.get.assert_called()
+            args = requests.get.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+
+            requests.get.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            client._get("/api/", params=params)
+            requests.get.assert_called()
+            args = requests.get.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+
+    def test_delete(self):
+        with mock.patch.object(requests, "delete"):
+            client = Client("key", "secret")
+            client._delete("/api/")
+            requests.delete.assert_called()
+            args = requests.delete.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+
+            requests.delete.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            client._delete("/api/", params=params)
+            requests.delete.assert_called()
+            args = requests.delete.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+
+    def test_post(self):
+        with mock.patch.object(requests, "post"):
+            client = Client("key", "secret")
+            client._post("/api/")
+            requests.post.assert_called()
+            args = requests.post.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+            self.assertEqual(args["data"], None)
+
+            requests.post.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            client._post("/api/", params=params)
+            requests.post.assert_called()
+            args = requests.post.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+            self.assertEqual(args["data"], None)
+
+            requests.post.reset_mock()
+
+            client = Client("key", "secret")
+            body = "nice body"
+            client._post("/api/", body=body)
+            requests.post.assert_called()
+            args = requests.post.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+            self.assertEqual(args["data"], body)
+
+            requests.post.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            body = "nice body"
+            client._post("/api/", body=body, params=params)
+            requests.post.assert_called()
+            args = requests.post.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+            self.assertEqual(args["data"], body)
+
+    def test_put(self):
+        with mock.patch.object(requests, "put"):
+            client = Client("key", "secret")
+            client._put("/api/")
+            requests.put.assert_called()
+            args = requests.put.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+            self.assertEqual(args["data"], None)
+
+            requests.put.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            client._put("/api/", params=params)
+            requests.put.assert_called()
+            args = requests.put.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+            self.assertEqual(args["data"], None)
+
+            requests.put.reset_mock()
+
+            client = Client("key", "secret")
+            body = "nice body"
+            client._put("/api/", body=body)
+            requests.put.assert_called()
+            args = requests.put.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], None)
+            self.assertEqual(args["data"], body)
+
+            requests.put.reset_mock()
+
+            client = Client("key", "secret")
+            params = {
+                "key": "value",
+            }
+            body = "nice body"
+            client._put("/api/", body=body, params=params)
+            requests.put.assert_called()
+            args = requests.put.call_args[1]
+            self.assertEqual(args["url"], "https://api.shapeways.com/api/v1")
+            self.assertIsInstance(args["auth"], OAuth1)
+            self.assertEqual(args["params"], params)
+            self.assertEqual(args["data"], body)
