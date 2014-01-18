@@ -6,3 +6,5 @@ docs/_*
 .env
 *.egg-info
 *.egg
+htmlcov
+.coverage
