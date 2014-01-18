@@ -1,5 +1,5 @@
 Python Shapeways Documentation
-========================
+==============================
 
 Contents:
 

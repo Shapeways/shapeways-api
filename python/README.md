@@ -5,17 +5,31 @@ Python module for interacting with the [Shapeways](http://www.shapeways.com) api
 
 ## Installation
 ### PIP
-Right now python-shapeways is not registered with pypi so git must be used
+Right now python-shapeways is not registered with pypi so git must be used to install
 
 ### Git
 ```bash
 git clone git://github.com/Shapeways/shapeways-api.git
 cd ./shapeways-api/python
+make install
+
+# or
+
 pip install -r requirements.txt
 python setup.py install
 ```
 
 ## API
+
+Build the sphinx documentation from the `docs` directory.
+
+```bash
+git clone git://github.com/Shapeways/shapeways-api.git
+cd ./shapeways-api/python
+make docs
+```
+
+Open `docs/_build/html/index.html` in a web browser to view documentation.
 
 ## Examples
 See `examples` directory.
@@ -23,8 +37,6 @@ See `examples` directory.
 ## TODO
 - [ ] Setup Travis Build
 - [ ] Setup Coveralls
-- [ ] Write Documentation
-- [ ] Setup Sphinx/ReadTheDocs
 - [ ] Add Flask Example
 
 ## License
