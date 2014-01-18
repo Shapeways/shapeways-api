@@ -65,7 +65,7 @@ class Client(object):
             verifier=oauth_verifier
         )
         response = requests.post(
-            self.url("/oauth1/access_token/"),
+            url=self.url("/oauth1/access_token/"),
             auth=access_oauth
         )
         data = parse_qs(response.text)
