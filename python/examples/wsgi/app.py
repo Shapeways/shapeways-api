@@ -3,8 +3,6 @@ import json
 from shapeways.client import Client
 
 client = Client(
-    # consumer_key="1c76f37a9a1d8b5b6b33f5af74ecf323d8e14c2c",
-    # consumer_secret="059dcb7cb2df148c2ea1edb21f833a38116e76f6",
     consumer_key="<YOUR KEY HERE>",
     consumer_secret="<YOUR SECRET HERE>",
     callback_url="http://localhost:3000/callback"
@@ -28,7 +26,7 @@ def application(environ, start_response):
         ])
         return [""]
     else:
-        response = client.get_api_nfo()
+        response = client.get_api_info()
         start_response("200 Ok", [
             ("Content-Type", "application/json"),
         ])
