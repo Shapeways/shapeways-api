@@ -21,8 +21,6 @@ python setup.py install
 See `examples` directory.
 
 ## TODO
-- [ ] Finish API Code
-- [ ] Write Tests
 - [ ] Setup Travis Build
 - [ ] Setup Coveralls
 - [ ] Write Documentation
