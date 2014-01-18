@@ -82,28 +82,28 @@ class Client(object):
         """
         """
         return requests.get(
-            self.url(url), auth=self.oauth, params=params
+            url =self.url(url), auth=self.oauth, params=params
         )
 
     def _delete(self, url, params=None):
         """
         """
         return requests.delete(
-            self.url(url), auth=self.oauth, params=params
+            url=self.url(url), auth=self.oauth, params=params
         )
 
     def _post(self, url, body=None, params=None):
         """
         """
         return requests.post(
-            self.url(url), auth=self.oauth, params=params, data=body
+            url=self.url(url), auth=self.oauth, params=params, data=body
         )
 
     def _put(self, url, body=None, params=None):
         """
         """
         return requests.put(
-            self.url(url), auth=self.oauth, params=params, data=body
+            url=self.url(url), auth=self.oauth, params=params, data=body
         )
 
     def get_api_info(self):
@@ -182,14 +182,14 @@ class Client(object):
                 missing.append(prop)
         if missing:
             raise Exception("get_price missing required parameters: %r" % missing)
-        return self._post(self.url("/price/"), body=json.dumps(params))
+        return self._post("/price/", body=json.dumps(params))
 
     def add_to_cart(self, params):
         """
         """
         if "modelId" not in params:
             raise Exception("add_to_cart missing required parameter ['modelId']")
-        return self._post(self.url("/orders/cart/"), body=json.dumps(params))
+        return self._post("/orders/cart/", body=json.dumps(params))
 
     def add_model_file(self, model_id, params):
         """
@@ -204,7 +204,7 @@ class Client(object):
         if missing:
             raise Exception("add_model_file missing required parameters %r" % missing)
         return self._post(
-            self.url("/models/%s/files/" % model_id), body=json.dumps(params)
+            "/models/%s/files/" % model_id, body=json.dumps(params)
         )
 
     def add_model_photo(self, model_id, params):
@@ -213,7 +213,7 @@ class Client(object):
         if "file" not in params:
             raise Exception("add_model_photo missing required parameter ['file']")
         return self._post(
-            self.url("/models/%s/photos/" % model_id), body=json.dumps(params)
+            "/models/%s/photos/" % model_id, body=json.dumps(params)
         )
 
     def get_model_file(self, model_id, file_version, include_file=False):
@@ -223,7 +223,7 @@ class Client(object):
             "file": int(include_file),
         }
         return self._get(
-            self.url("/models/%s/files/%s/" % (model_id, file_version)),
+            "/models/%s/files/%s/" % (model_id, file_version),
             params=params
         )
 
@@ -232,7 +232,7 @@ class Client(object):
         """
         """
         return self._put(
-            self.url("/models/%s/info/" % model_info), body=json.dumps(params)
+            "/models/%s/info/" % model_id, body=json.dumps(params)
         )
 
     def add_model(self, params):
@@ -245,4 +245,4 @@ class Client(object):
                 missing.append(prop)
         if missing:
             raise Exception("add_model missing required parameters: %r" % missing)
-        return self._post(self.url("/models/"), body=json.dumps(params))
+        return self._post("/models/", body=json.dumps(params))
