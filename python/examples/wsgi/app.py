@@ -30,7 +30,7 @@ def application(environ, start_response):
         start_response("200 Ok", [
             ("Content-Type", "application/json"),
         ])
-        return [str(response.text)]
+        return [json.dumps(response)]
 
 
 if __name__ == "__main__":
