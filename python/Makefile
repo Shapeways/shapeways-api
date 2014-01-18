@@ -7,7 +7,7 @@ dev:
 	@python setup.py develop
 
 clean:
-	@rm -rf htmlcov *.egg *.egg-info .coverage
+	@rm -rf htmlcov *.egg *.egg-info .coverage docs/_build
 
 test:
 	@py.test shapeways/tests
@@ -19,4 +19,8 @@ test-coveralls:
 	@py.test --cov shapeways --cov-report term-missing shapeways/tests
 	@coveralls
 
-.PHONY: install dev clean test test-cov test-coveralls
+docs:
+	@pip install -r docs-requirements.txt
+	@cd ./docs; make html
+
+.PHONY: install dev clean test test-cov test-coveralls docs
