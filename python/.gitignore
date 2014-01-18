@@ -1,0 +1,6 @@
+*.py[co]
+*.log
+build
+dist
+docs/_*
+.env
