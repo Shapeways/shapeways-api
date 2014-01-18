@@ -34,8 +34,7 @@ class Client(object):
         if not path.endswith("/"):
             path += "/"
 
-        url = "%s%s%s" % (self.base_url, path, self.api_version)
-        return url
+        return "%s%s%s" % (self.base_url, path, self.api_version)
 
     def connect(self):
         """
