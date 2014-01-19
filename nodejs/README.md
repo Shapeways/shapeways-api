@@ -16,14 +16,23 @@ npm install
 
 ## API
 
+You can build documentation with.
+
+```bash
+git clone git://github.com/Shapeways/shapeways-api.git
+cd ./shapeways-api/nodejs
+make docs
+```
+Then access documentation at `/docs/index.html`
+
 ## Examples
 See `examples` directory.
 
 ## TODO
-- [ ] Write Documentation
 - [ ] Add Express Example
 - [ ] Setup Travis Build
 - [ ] Setup Coveralls
+- [ ] Setup ReadTheDocs for documentation
 
 ## License
 ```
