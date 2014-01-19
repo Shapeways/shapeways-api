@@ -29,6 +29,7 @@
   "devDependencies": {
     "mocha": "~1.17.0",
     "jscoverage": "~0.3.8",
-    "coveralls": "~2.6.1"
+    "coveralls": "~2.6.1",
+    "jsdoc": "~3.3.0-alpha3"
   }
 }

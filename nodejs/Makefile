@@ -5,7 +5,7 @@ dev:
 	@npm install
 
 clean:
-	@rm -rf ./lib-cov coverage.html
+	@rm -rf ./lib-cov coverage.html docs/
 
 test: dev
 	@./node_modules/.bin/mocha -u tdd --check-leaks --recursive -R spec ./test
@@ -20,4 +20,7 @@ test-coveralls: lib-cov
 lib-cov:
 	@./node_modules/.bin/jscoverage --no-highlight lib lib-cov
 
-.PHONY: install dev clean test test-cov test-coveralls lib-cov
+docs: dev
+	@./node_modules/.bin/jsdoc --recurse --destination docs README.md lib
+
+.PHONY: install dev clean test test-cov test-coveralls lib-cov docs
