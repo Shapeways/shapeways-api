@@ -454,7 +454,7 @@ suite("Shapeways.Client", function(){
             };
 
             var client = new shapeways.client();
-            client.getModelFile(86, 23, function(error, results){
+            client.getModelFile(86, 23, false, function(error, results){
                 assert.equal(typeof(results), "object");
                 assert.equal(error, null);
                 done();
