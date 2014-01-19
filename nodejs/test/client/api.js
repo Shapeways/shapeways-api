@@ -5,7 +5,7 @@ var shapeways = require(libdir);
 
 suite("Shapeways.Client", function(){
     suite("client.getApiInfo", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/api/v1");
@@ -24,7 +24,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getCart", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/orders/cart/v1");
@@ -53,7 +53,7 @@ suite("Shapeways.Client", function(){
             });
         });
 
-        test("should call the right thing", function(done){
+        test("should build the correct url with qs and call client.get", function(done){
             var old_post = shapeways.client.prototype.post;
             shapeways.client.prototype.post = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/orders/cart/v1?modelId=86");
@@ -76,7 +76,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getMaterials", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/materials/v1");
@@ -95,7 +95,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getMaterial", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/materials/86/v1");
@@ -114,7 +114,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getModel", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/v1");
@@ -133,7 +133,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getModelInfo", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/info/v1");
@@ -152,7 +152,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getModels", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/v1?");
@@ -169,7 +169,7 @@ suite("Shapeways.Client", function(){
             shapeways.client.prototype.get = old_get;
         });
 
-        test("should call the right thing with page", function(done){
+        test("should build the correct url with page parameter and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/v1?page=5");
@@ -188,7 +188,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.deleteModel", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.delete", function(done){
             var old_delete = shapeways.client.prototype.delete;
             shapeways.client.prototype.delete = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/v1");
@@ -207,7 +207,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getPrinters", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/printers/v1");
@@ -226,7 +226,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getPrinter", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/printers/86/v1");
@@ -245,7 +245,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getCategories", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/categories/v1");
@@ -264,7 +264,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getCategory", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/categories/86/v1");
@@ -283,7 +283,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getPrice", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.post", function(done){
             var old_post = shapeways.client.prototype.post;
             shapeways.client.prototype.post = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/price/v1");
@@ -339,7 +339,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.addModelFile", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.post", function(done){
             var old_post = shapeways.client.prototype.post;
             shapeways.client.prototype.post = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/files/v1");
@@ -387,7 +387,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.addModelPhoto", function(){
-        test("should call the right thing", function(done){
+        test("should build a correct url and call client.post", function(done){
             var old_post = shapeways.client.prototype.post;
             shapeways.client.prototype.post = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/photos/v1");
@@ -429,7 +429,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.getModelFile", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url without includeFile given and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/files/23/v1?file=0");
@@ -446,7 +446,7 @@ suite("Shapeways.Client", function(){
             shapeways.client.prototype.get = old_get;
         });
 
-        test("should call the right thing without includeFile", function(done){
+        test("should build the correct url with includeFile set to false and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/files/23/v1?file=0");
@@ -463,7 +463,7 @@ suite("Shapeways.Client", function(){
             shapeways.client.prototype.get = old_get;
         });
 
-        test("should call the right thing with includeFile", function(done){
+        test("should build the correct url with includeFile set to true and call client.get", function(done){
             var old_get = shapeways.client.prototype.get;
             shapeways.client.prototype.get = function(url, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/files/23/v1?file=1");
@@ -482,7 +482,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.updateModelInfo", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.put", function(done){
             var old_put = shapeways.client.prototype.put;
             shapeways.client.prototype.put = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/models/86/v1");
@@ -502,7 +502,7 @@ suite("Shapeways.Client", function(){
     });
 
     suite("client.addModel", function(){
-        test("should call the right thing", function(done){
+        test("should build the correct url and call client.post", function(done){
             var old_post = shapeways.client.prototype.post;
             shapeways.client.prototype.post = function(url, body, callback){
                 assert.equal(url, "https://api.shapeways.com/models/v1");
