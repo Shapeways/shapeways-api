@@ -1,0 +1,6 @@
+mock
+unittest2
+pytest
+pytest-cov
+coveralls
+-r requirements.txt
