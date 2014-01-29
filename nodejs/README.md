@@ -1,55 +1,57 @@
-shapeways-node
+Node Shapeways
 ==============
 
-Sample application for the new Shapeways API in NodeJS
-
+node.js module for accessing the [Shapeways](http://www.shapeways.com) api [http://developers.shapeways.com](http://developers.shapeways.com).
 
 ## Installation
+### NPM
+Right now node-shapeways is not registered on npm so it must be installed via git.
 
-```
-1) Download NodeJS - http://nodejs.org/
-2) Download npm - http://nodejs.org/download/
-3) Run `npm install` from the base directory to install necessary modules
-```
-
-## Configuration
-
-This sample app allows you to set configuration variables in one of two ways. The variables made available can be see in `cfg/config.cofee` which will compile to `cfg/config.js`.
-
-**Environment Variables (preferred)** - Node can easily read variables from your local environment, which allows you to securely set configuration variables like Consumer Key, etc locally rather than in the code.
-
-In your *nix console:
-```
-Run export CALLBACK_URL = 'http://localhost:3000/callback'
+### Git
+```bash
+git clone git://github.com/Shapeways/shapeways-api.git
+cd ./shapeways-api/nodejs
+npm install
 ```
 
-**Configuration File** - The file `cfg/config.coffee` contains a number of variables that by default pull from your environment but also fall back to defaults specified in the file.
+## API
 
-_Note: If you modify the configuration file you will need to recompile the coffee-script files into javascript by running `coffee -c .` in the base directory._
+You can build documentation with.
 
-
-**Variables**
+```bash
+git clone git://github.com/Shapeways/shapeways-api.git
+cd ./shapeways-api/nodejs
+make docs
 ```
-# Tokens from 'My Apps' on Shapeways
-exports.CUSTOMER_KEY = process.env.CUSTOMER_KEY || '0c4d90e3d93a690d1287086d066eb64c4c15914f'
-exports.CUSTOMER_SECRET = process.env.CUSTOMER_SECRET || '647939e8935d986413a83c6e428fd64fb7f668d5'
+Then access documentation at `/docs/index.html`
 
-# Your App's Callback URL
-exports.CALLBACK_URL = process.env.CALLBACK_URL || 'http://localhost:3000/callback'
-```
-
-
-## Usage
-
-```
-1) Run `node app.js`
-2) Load up http://localhost:3000/ in your browser to access the app (Note: must be connected to SW VPN)
-```
-
-
+## Examples
+See `examples` directory.
 
 ## TODO
-* Edit a model's information
-* View a list of Materials
-* Get pricing information for a model
-* Add links to documentation
+- [ ] Add Express Example
+- [ ] Setup Travis Build
+- [ ] Setup Coveralls
+- [ ] Setup ReadTheDocs for documentation
+
+## License
+```
+The MIT License (MIT) Copyright (c) 2014 Shapeways <api@shapeways.com> (http://developers.shapeways.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to do
+so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```

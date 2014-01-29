@@ -1,0 +1,7 @@
+test
+examples
+lib-cov
+coverage.html
+.gitignore
+.travis.yml
+docs
