@@ -7,7 +7,8 @@ Sample applications for the Shapeways REST API in various languages.
 
 - PHP/PECL
 - PHP/CURL
-- NodeJS
+- [NodeJS](http://github.com/Shapeways/node-shapeways)
+- [Python](http://github.com/Shapeways/python-shapeways)
 
 ## TODO
 
@@ -15,6 +16,4 @@ Sample applications for the Shapeways REST API in various languages.
 - C++
 - Java
 - Perl
-- Python
 - Ruby
-
