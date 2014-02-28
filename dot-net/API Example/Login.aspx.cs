@@ -12,8 +12,8 @@ namespace API_Example
         protected void Page_Load(object sender, EventArgs e)
         {
             ShapewaysClient client = new ShapewaysClient(
-                "1c76f37a9a1d8b5b6b33f5af74ecf323d8e14c2c",
-                "059dcb7cb2df148c2ea1edb21f833a38116e76f6",
+                "CONSUMER TOKEN",
+                "CONSUMER SECRET",
                 "http://localhost:49314/Callback.aspx"
             );
 
