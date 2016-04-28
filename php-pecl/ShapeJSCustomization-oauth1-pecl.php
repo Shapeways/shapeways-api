@@ -18,9 +18,9 @@ try {
     $text = "customText";
 
     $filename = "customPic.png";
-    $picture = file_get_contents("../pics/". $filename);
+    $picture = file_get_contents("../pictures/". $filename);
 
-    $spin = "ABC123";  // CHANGEME // SPIN for a product that has already been set up as a custom maker product
+    $spin = "ABC123";  // CHANGEME // SPIN for a product that has already been set up as a custom maker product with one text field and one picture field
     $data = array(
       "spin" => "$spin",
       "customParam" => array(
