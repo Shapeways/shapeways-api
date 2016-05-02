@@ -40,9 +40,9 @@ try {
     } else {
         print_r($json);
     }
-} catch(OAuthException $E) {
+} catch(OAuthException $e) {
 
-  print_r($E);
+  print_r($e);
 
 }
 
