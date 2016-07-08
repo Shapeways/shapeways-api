@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-// NOTE - You must have special access to use this endoint. To request access, please submit the form here - https://www.shapeways.com/contact/contact-form?email_to=service%2Bbizdev@shapeways.com
+// NOTE - You must have special access to use this endoint. Please request access from the Business Development Team here - https://www.shapeways.com/contact/contact-form
 
 require "consumer_key.php";
 require "access_token.php";
