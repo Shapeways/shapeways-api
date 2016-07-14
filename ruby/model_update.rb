@@ -1,4 +1,5 @@
-require 'json'
+require 'bundler/setup'
+Bundler.require
 require_relative 'authorize.rb'
 
 # model information

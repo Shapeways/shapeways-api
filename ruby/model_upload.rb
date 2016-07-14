@@ -1,6 +1,5 @@
-require 'json'
-require 'base64'
-require 'uri'
+require 'bundler/setup'
+Bundler.require
 require_relative 'authorize.rb'
 
 # file information

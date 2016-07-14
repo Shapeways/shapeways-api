@@ -1,4 +1,5 @@
-require 'oauth'
+require 'bundler/setup'
+Bundler.require
 require 'yaml'
 
 # grab oauth creds from yaml files
