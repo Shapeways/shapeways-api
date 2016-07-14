@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'oauth'
 require 'yaml'
 
