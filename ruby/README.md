@@ -5,7 +5,8 @@ Sample applications for the Shapeways REST API in ruby
 
 ## Installation
 1. install ruby
-2. install oauth gem 
+2. `gem install bundler`
+3. `bundle install` 
 
 ## Configuration
 1. Get an oauth1 `Consumer Key` at <http://www.shapeways.com/myapps> and store the `Consumer Key` in `consumer_keys.yaml`
