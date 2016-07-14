@@ -27,6 +27,7 @@ Sample applications for the Shapeways REST API in PHP/PECL
 - MaterialInfo-oauth1-pecl.php Show material properties.
 - ModelDownload-oauth1-pecl.php Download a model.
 - ModelGet-oauth1-pecl.php Show model properties.
+- ModelUpdate-oauth1-pecl.php Update model properties.
 - ModelUpload-oauth1-pecl.php Upload a model.
 - PrinterList-oauth1-pecl.php Show a list of all properties of all printers.
 - PrinterGet-oauth1-pecl.php Show all properties of a printer.
