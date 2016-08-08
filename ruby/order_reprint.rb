@@ -2,7 +2,7 @@ require 'bundler/setup'
 Bundler.require
 require_relative 'authorize.rb'
 
-# NOTE - You must have special access to use this endoint. Please request access from the Business Development Team here - https://www.shapeways.com/contact/contact-form
+# NOTE - You must have special access to use this endpoint. Please request access from the Business Development Team here - https://www.shapeways.com/contact/contact-form
 
 # order information
 order_id = 1234567 #CHANGEME

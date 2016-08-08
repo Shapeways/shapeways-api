@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-// NOTE - You must have special access to use this endoint. Please request access from the Business Development Team here - https://www.shapeways.com/contact/contact-form
+// NOTE - You must have special access to use this endpoint. Please request access from the Business Development Team here - https://www.shapeways.com/contact/contact-form
 
 require "consumer_key.php";
 require "access_token.php";
@@ -30,7 +30,7 @@ try {
     $oauth->fetch($api_url_base . "/orders/$orderId/reprint/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);
-    
+
     if (null == $json) {
         PrintJsonLastError();
         var_dump($response);
