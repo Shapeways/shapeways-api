@@ -23,7 +23,7 @@ try {
                   "acceptTermsAndConditions" => 1,
                   );
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/models/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
+    $oauth->fetch($api_url_base ."/models/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json", "Content-Type" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {

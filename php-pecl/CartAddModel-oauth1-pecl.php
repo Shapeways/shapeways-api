@@ -15,14 +15,14 @@ try {
 }
 
 try {
-    $modelId = 1234567; # CHANGEME
+    $modelId = 24470; # CHANGEME
     $data = array("modelId" => "$modelId",
-                  "materialId" => 6,
+                  "materialId" => 62, #CHANGEME (must be a material that is enabled for sale)
                   "quantity" => 1,
                   "scale" => 1,
     );
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/orders/cart/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
+    $oauth->fetch($api_url_base ."/orders/cart/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json", "Content-Type" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {
