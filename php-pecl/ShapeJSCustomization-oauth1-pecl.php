@@ -11,7 +11,7 @@ try {
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
 } catch(OAuthException $e) {
-    Error("setup exception", $e->getMessage(), null, null, $e->debugInfo);
+  Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 try {
@@ -41,9 +41,7 @@ try {
         print_r($json);
     }
 } catch(OAuthException $e) {
-
-  print_r($e);
-
+  Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 ?>
