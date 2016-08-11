@@ -10,7 +10,7 @@ try {
     $oauth = new Oauth($consumer_key, $consumer_secret, OAUTH_SIG_METHOD_HMACSHA1, OAUTH_AUTH_TYPE_AUTHORIZATION);
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
-} catch(OAuthException $e) {
+} catch(OAuthException $E) {
   Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
