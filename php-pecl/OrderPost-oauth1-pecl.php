@@ -37,7 +37,7 @@ try {
       "address2"  => "Apt 1", //CHANGEME
       "address3"  => "Company Name", //CHANGEME
       "zipCode"   => "11111", //CHANGEME
-      "phoneNumber" => "11111111111", //CHANGEME
+      "phoneNumber" => "1111111111", //CHANGEME
       "items" => $items,
       "paymentVerificationId" => "ABCD", //CHANGEME - this id will be provided by Shapeways
       "paymentMethod" => "credit_card", 
