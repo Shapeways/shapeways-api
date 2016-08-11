@@ -40,7 +40,7 @@ try {
     } else {
         print_r($json);
     }
-} catch(OAuthException $e) {
+} catch(OAuthException $E) {
   Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
