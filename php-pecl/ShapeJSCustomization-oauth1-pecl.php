@@ -10,8 +10,8 @@ try {
     $oauth = new Oauth($consumer_key, $consumer_secret, OAUTH_SIG_METHOD_HMACSHA1, OAUTH_AUTH_TYPE_AUTHORIZATION);
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
-} catch(OAuthException $e) {
-    Error("setup exception", $e->getMessage(), null, null, $e->debugInfo);
+} catch(OAuthException $E) {
+  Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 try {
@@ -31,7 +31,7 @@ try {
     );
 
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/shapejs/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
+    $oauth->fetch($api_url_base ."/shapejs/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json", "Content-Type" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {
@@ -40,10 +40,8 @@ try {
     } else {
         print_r($json);
     }
-} catch(OAuthException $e) {
-
-  print_r($e);
-
+} catch(OAuthException $E) {
+  Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 ?>

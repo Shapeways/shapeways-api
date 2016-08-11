@@ -11,7 +11,7 @@ try {
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
 } catch(OAuthException $E) {
-    Error("setup exception", $E->getMessage(), null, null, $E->debugInfo);
+  Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 try {
@@ -23,7 +23,7 @@ try {
                   "acceptTermsAndConditions" => 1,
                   );
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/models/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
+    $oauth->fetch($api_url_base ."/models/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json", "Content-Type" => "application/json"));
     $response = $oauth->getLastResponse();
     $json = json_decode($response);    
     if (null == $json) {
@@ -33,7 +33,7 @@ try {
         print_r($json);
     }
 } catch(OAuthException $E) {
-    Error("fetch exception", $E->getMessage(), null, $oauth->getLastResponseInfo(), $E->debugInfo);
+  Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 ?>

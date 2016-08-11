@@ -13,7 +13,7 @@ try {
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
 } catch(OAuthException $E) {
-    Error("setup exception", $E->getMessage(), null, null, $E->debugInfo);
+  Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 try {
@@ -37,7 +37,7 @@ try {
       "address2"  => "Apt 1", //CHANGEME
       "address3"  => "Company Name", //CHANGEME
       "zipCode"   => "11111", //CHANGEME
-      "phoneNumber" => "11111111111", //CHANGEME
+      "phoneNumber" => "1111111111", //CHANGEME
       "items" => $items,
       "paymentVerificationId" => "ABCD", //CHANGEME - this id will be provided by Shapeways
       "paymentMethod" => "credit_card", 
@@ -45,7 +45,7 @@ try {
     );
 
     $data_string = json_encode($data);
-    $oauth->fetch($api_url_base ."/orders/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json"));
+    $oauth->fetch($api_url_base ."/orders/v1", $data_string, OAUTH_HTTP_METHOD_POST, array("Accept" => "application/json", "Content-Type" => "application/json"));
     $response = $oauth->getLastResponse();
 
     $json = json_decode($response);    
@@ -57,7 +57,7 @@ try {
     }
 
 } catch(OAuthException $E) {
-    Error("fetch exception", $E->getMessage(), null, $oauth->getLastResponseInfo(), $E->debugInfo);
+  Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 ?>

@@ -11,7 +11,7 @@ try {
     $oauth->enableDebug();
     $oauth->setToken($access_token, $access_secret);
 } catch(OAuthException $E) {
-    Error("setup exception", $E->getMessage(), null, null, $E->debugInfo);
+  Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 $modelId = 1234567; #CHANGEME
@@ -36,5 +36,5 @@ try {
         print_r($json);
     }
 } catch (OAuthException $E) {
-    Error("fetch exception", $E->getMessage(), null, null, $E->debugInfo);
+  Error("fetch exception", $E->getMessage(), $oauth->getLastResponse(), $oauth->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }

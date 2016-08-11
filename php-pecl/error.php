@@ -1,30 +1,41 @@
 <?php
 
-$verbose_debug = false;
+$verbose_debug = false; // set to true to print out extra debug information
 
-function Error($component, $exception, $info, $LastResponseInfo, $debugInfo) {
+function Error($component, $exception, $lastResponse, $lastResponseInfo, $debugInfo = NULL, $file = NULL, $line= NULL) {
     global $verbose_debug;
-    echo "A fatal error occurred during $component\n";
+
+    echo "A fatal error occurred during $component";
+    if(!is_null($file) && !is_null($line)) {
+      echo "in file <$file> on line <$line>";
+    }
+    echo "\n";
+
     if ($exception) {
         echo "Exception : $exception\n";
     }
-    if ($info) {
-        if (array_key_exists('oauth_problem', $info)) {
-            echo "oauth_problem : [". $info['oauth_problem'] . "]\n";
-        }
-        if ($verbose_debug) {
-            echo "Query response body :\n";
-            var_dump($info);
-        }
-    } 
-    if ($verbose_debug && $LastResponseInfo) {
-        echo "Query response headers :\n";
-        var_dump($LastResponseInfo);
+
+    if($lastResponse) {
+      echo "Error : ";
+      $json = json_decode($lastResponse);
+      if (null == $json) {
+        PrintJsonLastError();
+        var_dump($lastResponse);
+      } else {
+        print_r($json);
+      }
     }
+
+    if ($verbose_debug && $lastResponseInfo) {
+        echo "\nQuery response headers :\n";
+        var_dump($lastResponseInfo);
+    }
+
     if ($verbose_debug && $debugInfo) {
-        echo "Oauth debugInfo :\n";
+        echo "\nOauth debugInfo :\n";
         var_dump($debugInfo);
     }
+
     exit(1);
 }
 

@@ -11,7 +11,7 @@ try {
     $oauth_client = new Oauth($consumer_key, $consumer_secret, OAUTH_SIG_METHOD_HMACSHA1, OAUTH_AUTH_TYPE_AUTHORIZATION);
     $oauth_client->enableDebug();
 } catch(OAuthException $E) {
-    Error("setup exception", $E->getMessage(), null, null, $E->debugInfo);
+    Error("setup exception", $E->getMessage(), null, null, $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 try {
@@ -33,10 +33,11 @@ try {
         echo "Next please authenticate yourself at ".$info['authentication_url']."?oauth_token=".$info['oauth_token']." and collect the PIN for the next step.\n";
         $oauth_client->setToken( $info['oauth_token'] , $info['oauth_token_secret'] );
     } else {
-        Error("getRequestToken", null, $info, $oauth_client->getLastResponseInfo(), null);
+      echo "Issue getting request token from Oauth client\n";
+      return;
     }
 } catch(OAuthException $E){
-    Error("getRequestToken", $E->getMessage(), null, $oauth_client->getLastResponseInfo(), $E->debugInfo);
+    Error("getRequestToken", $E->getMessage(), $oauth_client->getLastResponse(), $oauth_client->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 $pin = readline("Pin: ");
@@ -50,10 +51,11 @@ try {
         echo "\nYou can store these access token values in access_token.php for the other scripts to use.\n";
         $oauth_client->setToken( $info['oauth_token'] , $info['oauth_token_secret'] );
     } else {
-        Error("getAccessToken", null, $info, $oauth_client->getLastResponseInfo(), null);
+      echo "Issue getting access token from Oauth client\n";
+      return;
     }
 } catch(OAuthException $E){
-    Error("getAccessToken exception", $E->getMessage(), null, $oauth_client->getLastResponseInfo(), $E->debugInfo);
+    Error("getAccessToken exception", $E->getMessage(), $oauth_client->getLastResponse(), $oauth_client->getLastResponseInfo(), $E->debugInfo, $E->getFile(), $E->getLine());
 }
 
 ?>
