@@ -10,11 +10,10 @@ the http://www.shapeways.com [API](http://developers.shapeways.com).
 - [NodeJS](http://github.com/Shapeways/node-shapeways)
 - [Python](http://github.com/Shapeways/python-shapeways)
 - [Go](http://github.com/Shapeways/go-shapeways)
+- [C++](https://github.com/Shapeways/cpp-shapeways)
 
 ## TODO
-
 - C
-- C++
 - Java
-- Perl
 - Ruby
+ 
